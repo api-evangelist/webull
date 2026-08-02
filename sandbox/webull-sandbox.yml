@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.webull.com/apis/docs/getting-started
+docs: https://developer.webull.com/apis/docs/getting-started
+model: >-
+  Webull separates test and live via an environment selector, not key prefixes.
+  The official MCP/SDK default to the UAT (sandbox) environment; live trading
+  requires an explicit switch (WEBULL_ENVIRONMENT=prod). Sandbox uses the same
+  App Key / App Secret signing flow against sandbox hosts.
+environments:
+  - id: uat
+    label: UAT / Sandbox (default)
+    default: true
+  - id: prod
+    label: Production (live trading)
+hosts:
+  us:
+    production:
+      http_api: api.webull.com
+      trading_events_grpc: events-api.webull.com
+      market_data_mqtt: data-api.webull.com
+    sandbox:
+      http_api: us-openapi-alb.uat.webullbroker.com
+      trading_events_grpc: us-openapi-events.uat.webullbroker.com
+      market_data_mqtt: us-openapi-quotes-api.uat.webullbroker.com
+      authorization_trading: oauth-open-api.sandbox.webull.com   # migrated 2026-07-20
+      login_redirect: passport.webull.com
+  hk:
+    production:
+      http_api: api.webull.hk
+      trading_events_grpc: events-api.webull.hk
+      market_data_mqtt: data-api.webull.hk
+    sandbox:
+      http_api: api.sandbox.webull.hk
+      trading_events_grpc: events-api.sandbox.webull.hk
+      market_data_mqtt: data-api.sandbox.webull.hk
+notes: >-
+  No published "magic" test symbols or fixture order IDs were found; sandbox uses
+  real instrument symbols (e.g. AAPL) against the UAT trading engine. Never invent
+  test values. The MCP server also ships risk controls (WEBULL_MAX_ORDER_NOTIONAL_*,
+  WEBULL_SYMBOL_WHITELIST) usable in either environment.

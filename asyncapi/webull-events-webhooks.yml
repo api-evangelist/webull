@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+type: Webhooks
+source: https://developer.webull.com/apis/docs
+docs: https://developer.webull.com/apis/docs/webull-open-api-reference
+model: streaming-push
+notes: >-
+  Webull does not publish an AsyncAPI document, but it ships a real event/streaming
+  surface (not HTTP webhooks). Two push channels are documented and their message
+  contracts are published as protobuf in the SDKs (see grpc/). Captured as a Webhooks
+  event surface.
+channels:
+  - name: trading-events
+    transport: gRPC
+    host_prod: events-api.webull.com
+    host_sandbox: us-openapi-events.uat.webullbroker.com
+    proto: grpc/webull-events.proto
+    description: >-
+      Real-time trading-event subscriptions — order status changes, fills, and
+      (since 2026-07-18) fee/commission fields on order-detail push.
+  - name: market-data
+    transport: MQTT / S2S streaming
+    host_prod: data-api.webull.com
+    host_sandbox: us-openapi-quotes-api.uat.webullbroker.com
+    proto: grpc/webull-quote.proto
+    subscribe_proto: grpc/webull-subscribe-message.proto
+    gateway_proto: grpc/webull-gateway.proto
+    description: >-
+      Real-time market-data push (snapshots, ticks, quotes/depth, OHLCV bars) for
+      stocks, futures, crypto, and event contracts.

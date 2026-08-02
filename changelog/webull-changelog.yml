@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.webull.com/apis/docs/changelog
+url: https://developer.webull.com/apis/docs/changelog
+scheme: date-based (YYYY-MM-DD)
+entries:
+  - date: '2026-07-20'
+    highlights:
+      - Order endpoints now include processing-delay notices regarding real-time data availability.
+      - "Sandbox API hosts migrated: Authorization/Trading APIs moved to oauth-open-api.sandbox.webull.com; login redirect updated to passport.webull.com."
+    breaking: false
+  - date: '2026-07-18'
+    highlights:
+      - "Changed: order detail and trading-event push interfaces now include fee and commission fields."
+      - "Added: two new Broker API endpoints for third-party cash journals; option-contracts query interface."
+    breaking: false
+  - date: '2026-07-13'
+    highlights:
+      - 24 new tools added to the Webull Cloud MCP Server (stock capital flow, filings, earnings calendar, fund ratings, financial indicators).
+    breaking: false
+  - date: '2026-07-10'
+    highlights:
+      - Webull CLI documentation released under AI-Friendly Resources.
+    breaking: false
+  - date: '2026-07-08'
+    highlights:
+      - "Sandbox infrastructure migration: Trading API, Trading Events (gRPC), Market Data (S2S streaming) and Broker API hosts updated to *.sandbox.webull.com."
+    breaking: false
+  - date: '2026-07-04'
+    highlights:
+      - New Trading API Activity module with "Get Account Cash Activities" endpoint for cash-flow queries.
+    breaking: false

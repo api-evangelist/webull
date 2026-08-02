@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/webull-inc/webull-openapi-cli
+clis:
+  - name: webull-openapi-cli
+    language: go
+    repo: https://github.com/webull-inc/webull-openapi-cli
+    install: go install github.com/webull-inc/webull-openapi-cli@latest
+    docs: https://developer.webull.com/apis/docs
+    description: Official first-party Go CLI for the Webull OpenAPI (released 2026-07-10 under AI-Friendly Resources).
+  - name: webull-openapi-mcp
+    language: python
+    repo: https://github.com/webull-inc/webull-openapi-mcp
+    install: uvx webull-openapi-mcp
+    description: MCP server CLI — doubles as a config/auth/serve command surface.
+    commands:
+      - {command: init, description: Initialize .env configuration}
+      - {command: auth, description: Authenticate (2FA approval in the Webull app)}
+      - {command: serve, description: Start the MCP server}
+      - {command: status, description: Show configuration status}
+      - {command: tools, description: List available tools}
+      - {command: "--version", description: Show version}
+  - name: webull-openapi python SDK CLI (scripts/cli.py)
+    language: python
+    repo: https://github.com/webull-inc/webull-agent-skills
+    description: Reference CLI shipped with the Agent Skill; three modules.
+    modules:
+      - name: trading
+        actions: [instrument-stock, instrument-crypto, instrument-futures-products, instrument-futures-list, instrument-futures-by-code, instrument-event-series, instrument-event-list, instrument-event-categories, instrument-event-events, account-list, balance, position, place, preview, replace, batch-place, algo-place, option-place, option-preview, option-replace, option-strategy-place, futures-place, futures-replace, crypto-place, event-place, event-replace, cancel, open, history, detail]
+      - name: market-data
+        actions: [stock-snapshot, stock-tick, stock-quotes, stock-bars, stock-footprint, futures-snapshot, crypto-snapshot, event-snapshot]
+      - name: auth
+        actions: [login, token]

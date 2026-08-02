@@ -1,8 +1,17 @@
 aid: webull
 name: Webull
-description: 'Webull is a company surfaced as a portfolio company of hongshan, lightspeed-venture-partners
-  and added to the API Evangelist network as a stub for enrichment. Sector: technology. This profile is
-  a lead awaiting the enrichment pipeline.'
+description: >-
+  Webull is a commission-free online brokerage whose Webull OpenAPI platform gives
+  quantitative and algorithmic traders programmatic access to trading and market
+  data across US and Hong Kong regions. It exposes four API products — a Trading API
+  (place/preview/replace/cancel orders for stocks, options, futures, crypto, and
+  event contracts, including combo OTO/OCO/OTOCO and TWAP/VWAP/POV algo orders), a
+  Market Data API (real-time and historical snapshots, ticks, quotes/depth, footprint
+  and OHLCV bars), a Broker API (enterprise account opening, funding, and cash
+  journals), and a Connect API (OAuth 2.0 third-party authorization). Requests are
+  authenticated with an App Key / App Secret pair and HMAC-SHA1 request signing, with
+  real-time streaming over gRPC (trading events) and MQTT (market data). Webull ships
+  official Python and Java SDKs, a Go CLI, a published MCP server, and an Agent Skill.
 url: https://raw.githubusercontent.com/api-evangelist/webull/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,18 +20,127 @@ x-backed-by:
 - lightspeed-venture-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://www.webull.com/favicon.ico
 tags:
 - Company
 - Technology
-apis: []
+- Financial Services
+- Brokerage
+- Trading
+- Stock Market
+- Market Data
+- Investing
+- Fintech
+- Cryptocurrency
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Webull Trading API
+  description: >-
+    Order management across stocks, options, futures, crypto, and event contracts —
+    place, preview, replace, cancel, batch (combo OTO/OCO/OTOCO), and algo
+    (TWAP/VWAP/POV) orders, plus accounts, balances, positions, and instruments.
+  humanURL: https://developer.webull.com/apis/docs/webull-open-api-reference
+  baseURL: https://api.webull.com
+  tags:
+  - Trading
+  - Orders
+  - Brokerage
+  properties:
+  - type: Documentation
+    url: https://developer.webull.com/apis/docs/webull-open-api-reference
+- name: Webull Market Data API
+  description: >-
+    Real-time and historical market data — snapshots, tick data, quotes/depth,
+    footprint, and OHLCV bars for stocks, futures, crypto, and event contracts, over
+    HTTP and MQTT streaming.
+  humanURL: https://developer.webull.com/apis/docs/market-data-api/subscribe-quotes
+  baseURL: https://api.webull.com
+  tags:
+  - Market Data
+  - Quotes
+  - Streaming
+  properties:
+  - type: Documentation
+    url: https://developer.webull.com/apis/docs/market-data-api/subscribe-quotes
+- name: Webull Connect API
+  description: >-
+    OAuth 2.0 third-party integration for authorizing access to a Webull user's
+    account.
+  humanURL: https://developer.webull.com/apis/docs
+  baseURL: https://api.webull.com
+  tags:
+  - OAuth
+  - Authorization
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
 common:
+- type: DomainSecurity
+  url: security/webull-domain-security.yml
 - type: Website
   url: https://webull.com
+- type: DeveloperPortal
+  url: https://developer.webull.com/apis/home
+- type: Documentation
+  url: https://developer.webull.com/apis/docs/webull-open-api-reference
+- type: APIReference
+  url: https://developer.webull.com/apis/docs/webull-open-api-reference
+- type: GettingStarted
+  url: https://developer.webull.com/apis/docs/getting-started
+- type: ChangeLog
+  url: https://developer.webull.com/apis/docs/changelog
+- type: GitHubOrganization
+  url: https://github.com/webull-inc
+- type: Authentication
+  url: authentication/webull-authentication.yml
+- type: SDKs
+  url: packages/webull-packages.yml
+- type: Packages
+  url: packages/webull-packages.yml
+- type: CLI
+  url: cli/webull-cli.yml
+- type: MCPServer
+  url: mcp/webull-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/webull-llms.txt
+- type: Protobuf
+  url: grpc/webull-events.proto
+- type: Webhooks
+  url: asyncapi/webull-events-webhooks.yml
+- type: Conventions
+  url: conventions/webull-conventions.yml
+- type: Idempotency
+  url: conventions/webull-conventions.yml
+- type: Conformance
+  url: conformance/webull-conformance.yml
+- type: ErrorCatalog
+  url: errors/webull-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/webull-lifecycle.yml
+- type: Sandbox
+  url: sandbox/webull-sandbox.yml
+- type: WellKnown
+  url: well-known/webull-well-known.yml

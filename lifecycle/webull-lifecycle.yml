@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.webull.com/apis/docs/changelog
+versioning:
+  scheme: interface-version-header + date-based changelog
+  current: v2
+  header: x-version
+  docs: https://developer.webull.com/apis/docs/webull-open-api-reference
+changelog:
+  url: https://developer.webull.com/apis/docs/changelog
+  ref: changelog/webull-changelog.yml
+deprecation:
+  policy_url: https://developer.webull.com/apis/docs/changelog
+  notes: >-
+    Deprecations and host migrations are announced via the dated changelog (e.g. the
+    2026-07-08 and 2026-07-20 sandbox host migrations to *.sandbox.webull.com and
+    oauth-open-api.sandbox.webull.com). No RFC 8594 Sunset/Deprecation header support
+    was documented at capture time.
+sla:
+  url: null
+  notes: No public uptime SLA / status page found (status.webull.com did not resolve).
+status_page: null
+regions:
+  - {id: us, portal: https://developer.webull.com/apis/home}
+  - {id: hk, portal: https://developer.webull.hk/apis/home}

@@ -1,0 +1,49 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.webull.com/apis/docs
+docs: https://developer.webull.com/apis/docs/webull-open-api-reference
+authentication:
+  style: app-key + HMAC-SHA1 request signing (per-request x-signature); OAuth 2.0 for Connect API
+  ref: authentication/webull-authentication.yml
+transport:
+  https_required: true
+  interface_version_header: x-version   # accepts v2
+idempotency:
+  supported: true
+  mechanism: client-order-id
+  description: >-
+    Order-placing operations accept a caller-supplied client_order_id (client-order-id).
+    Reusing the same client_order_id prevents duplicate order submission, giving
+    at-most-once semantics on the mutation endpoints (place / batch-place / option-place /
+    futures-place / crypto-place / event-place). Preview endpoints
+    (preview_stock_order / preview_option_order) let a caller validate before committing.
+pagination:
+  style: cursor/page-size
+  params: [page_size, series_symbol, last_client_order_id]
+  notes: >-
+    List endpoints (order history, event series/instruments) page via page_size and
+    a continuation key; order history is windowed by date range.
+request_tracing:
+  nonce_header: x-signature-nonce
+  timestamp_header: x-timestamp
+versioning:
+  scheme: interface-version-header (x-version=v2) + date-based changelog
+  ref: lifecycle/webull-lifecycle.yml
+rate_limiting:
+  ref: rate-limits (see lifecycle + llms)
+  us:
+    market_data: 600 req/min
+    order_place_replace_cancel: 600 req/min
+    order_query: 2 req/2s
+    auth_create_check: 10 req/30s
+  hk:
+    market_data: 60 req/60s
+    order_place: 15 req/s (US) / 1 req/s (HK, A-share)
+    order_preview: 40 req/10s
+    order_query: 40 req/2s
+error_envelope:
+  ref: errors/webull-problem-types.yml
+  notes: HTTP status + JSON body with code/message; SDKs raise typed errors.
+streaming:
+  trading_events: gRPC (events-api.webull.com) — see grpc/webull-events.proto
+  market_data: MQTT / S2S streaming (data-api.webull.com) — see grpc/webull-quote.proto

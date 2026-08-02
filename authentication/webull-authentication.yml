@@ -1,0 +1,54 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.webull.com/apis/docs/authentication/overview
+docs: https://developer.webull.com/apis/docs/authentication/overview
+summary:
+  types: [apiKey, http-signature, oauth2]
+  api_key_in: [header]
+  request_signing: HMAC-SHA1
+  notes: >-
+    Webull OpenAPI trading and market-data requests authenticate with an App Key /
+    App Secret pair. The App Secret never leaves the client — it signs each request.
+    The Connect API additionally offers OAuth 2.0 for third-party authorization of
+    Webull user accounts. All requests must use HTTPS.
+schemes:
+  - name: AppKeyRequestSigning
+    type: apiKey
+    in: header
+    description: >-
+      Every request carries an x-app-key identifier plus an HMAC-SHA1 signature over
+      the request computed with the App Secret. The secret is never transmitted.
+    headers:
+      - name: x-app-key
+        purpose: Unique developer identifier
+      - name: x-timestamp
+        purpose: Request time, ISO 8601 UTC (YYYY-MM-DDThh:mm:ssZ)
+      - name: x-signature
+        purpose: Cryptographic signature verifying request authenticity
+      - name: x-signature-algorithm
+        purpose: Algorithm type (e.g. HMAC-SHA1)
+      - name: x-signature-version
+        purpose: Algorithm version (e.g. 1.0)
+      - name: x-signature-nonce
+        purpose: Unique random string per request (replay protection)
+      - name: x-version
+        purpose: Interface version (accepts v2)
+    sources: [docs]
+  - name: TwoFactorAccessToken
+    type: apiKey
+    in: header
+    description: >-
+      For 2FA-enabled accounts an x-access-token is required. The SDK initiates token
+      creation automatically; the user completes verification in the Webull mobile app.
+      Tokens are valid ~15 days and auto-refresh.
+    headers:
+      - name: x-access-token
+        purpose: Reusable access token verified through the Webull App
+    sources: [docs]
+  - name: ConnectOAuth2
+    type: oauth2
+    description: >-
+      The Connect API provides OAuth 2.0 so third parties can obtain authorization to
+      act on a Webull user's account. Sandbox authorization/login redirect via
+      oauth-open-api.sandbox.webull.com / passport.webull.com.
+    sources: [docs]

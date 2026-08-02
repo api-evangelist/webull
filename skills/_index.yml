@@ -1,0 +1,15 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/webull-inc/webull-agent-skills
+skills:
+  - file: webull-openapi.md
+    name: webull-openapi
+    description: >-
+      Official Webull Agent Skill (verbatim from webull-inc/webull-agent-skills,
+      webull_openapi_skills/SKILL.md). Trade stocks, options, futures, crypto, and
+      event contracts; query real-time and historical market data; manage accounts
+      and positions. US and HK regions with configurable risk controls. Enforces a
+      confirmation-before-mutation safety policy over the Webull Python SDK CLI
+      (trading / market-data / auth modules).
+    api: Webull OpenAPI
+    official: true

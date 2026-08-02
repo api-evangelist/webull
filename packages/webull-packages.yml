@@ -1,0 +1,82 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/webull-inc
+packages:
+  # Python SDK — modular, published to PyPI (webull-inc/openapi-python-sdk)
+  - language: python
+    registry: pypi
+    name: webull-python-sdk-core
+    url: https://pypi.org/project/webull-python-sdk-core/
+    version: 0.1.18
+    install: pip install webull-python-sdk-core
+    official: true
+  - language: python
+    registry: pypi
+    name: webull-python-sdk-trade
+    url: https://pypi.org/project/webull-python-sdk-trade/
+    version: 0.1.18
+    install: pip install webull-python-sdk-trade
+    official: true
+  - language: python
+    registry: pypi
+    name: webull-python-sdk-mdata
+    url: https://pypi.org/project/webull-python-sdk-mdata/
+    version: 0.1.18
+    install: pip install webull-python-sdk-mdata
+    official: true
+  - language: python
+    registry: pypi
+    name: webull-python-sdk-quotes-core
+    url: https://pypi.org/project/webull-python-sdk-quotes-core/
+    version: 0.1.18
+    install: pip install webull-python-sdk-quotes-core
+    official: true
+  # Java SDK — modular, published to Maven Central (webull-inc/openapi-java-sdk)
+  - language: java
+    registry: maven
+    name: com.webull.openapi:webull-java-sdk
+    url: https://search.maven.org/artifact/com.webull.openapi/webull-java-sdk
+    version: 0.2.12
+    install: "implementation 'com.webull.openapi:webull-java-sdk:0.2.12'"
+    official: true
+  - language: java
+    registry: maven
+    name: com.webull.openapi:webull-java-sdk-core
+    url: https://search.maven.org/artifact/com.webull.openapi/webull-java-sdk-core
+    official: true
+  - language: java
+    registry: maven
+    name: com.webull.openapi:webull-java-sdk-trade
+    url: https://search.maven.org/artifact/com.webull.openapi/webull-java-sdk-trade
+    official: true
+  - language: java
+    registry: maven
+    name: com.webull.openapi:webull-java-sdk-quotes
+    url: https://search.maven.org/artifact/com.webull.openapi/webull-java-sdk-quotes
+    official: true
+  - language: java
+    registry: maven
+    name: com.webull.openapi:webull-java-sdk-grpc
+    url: https://search.maven.org/artifact/com.webull.openapi/webull-java-sdk-grpc
+    official: true
+  - language: java
+    registry: maven
+    name: com.webull.openapi:webull-java-sdk-trade-events
+    url: https://search.maven.org/artifact/com.webull.openapi/webull-java-sdk-trade-events
+    official: true
+  # Go CLI (webull-inc/webull-openapi-cli)
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/webull-inc/webull-openapi-cli
+    url: https://pkg.go.dev/github.com/webull-inc/webull-openapi-cli
+    install: go install github.com/webull-inc/webull-openapi-cli@latest
+    official: true
+    kind: cli
+  # MCP server (published, PyPI)
+  - language: python
+    registry: pypi
+    name: webull-openapi-mcp
+    url: https://pypi.org/project/webull-openapi-mcp/
+    install: uvx webull-openapi-mcp serve
+    official: true
+    kind: mcp-server

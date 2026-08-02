@@ -1,0 +1,82 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://github.com/webull-inc/webull-openapi-mcp
+servers:
+  - name: webull-openapi-mcp
+    kind: local
+    transport: stdio
+    install: uvx webull-openapi-mcp serve
+    package: https://pypi.org/project/webull-openapi-mcp/
+    repo: https://github.com/webull-inc/webull-openapi-mcp
+    description: >-
+      Official local MCP server (formerly webull-mcp-server). Lets AI assistants
+      (Cursor, Claude Desktop, Kiro) securely trade and read market data via the
+      Webull OpenAPI Python SDK. US and HK regions. Defaults to UAT sandbox; live
+      trading requires WEBULL_ENVIRONMENT=prod. Credentials via WEBULL_APP_KEY /
+      WEBULL_APP_SECRET env vars only (never pasted to the model). Built-in risk
+      controls (notional/quantity limits, symbol whitelist), audit logging, 2FA.
+    config_env:
+      - WEBULL_APP_KEY
+      - WEBULL_APP_SECRET
+      - WEBULL_REGION_ID   # us | hk
+      - WEBULL_ENVIRONMENT # uat (default) | prod
+      - WEBULL_TOOLSETS
+  - name: Webull Cloud MCP Server
+    kind: hosted
+    transport: http
+    status: published
+    source: https://developer.webull.com/apis/docs/changelog
+    description: >-
+      Webull-hosted remote MCP server. Per the 2026-07-13 changelog it added 24 tools
+      including stock capital flow, filings, earnings calendar, fund ratings, and
+      financial indicators. Connection details published in the developer docs.
+toolsets:
+  market_data:
+    - {name: get_stock_tick, region: "US,HK"}
+    - {name: get_stock_snapshot, region: "US,HK"}
+    - {name: get_stock_quotes, region: "US,HK"}
+    - {name: get_stock_footprint, region: "US,HK"}
+    - {name: get_stock_bars, region: "US,HK"}
+    - {name: get_stock_bars_single, region: "US,HK"}
+    - {name: get_futures_tick, region: US}
+    - {name: get_futures_snapshot, region: US}
+    - {name: get_futures_depth, region: US}
+    - {name: get_futures_bars, region: US}
+    - {name: get_futures_footprint, region: US}
+    - {name: get_crypto_snapshot, region: US}
+    - {name: get_crypto_bars, region: US}
+    - {name: get_event_tick, region: US}
+    - {name: get_event_snapshot, region: US}
+    - {name: get_event_depth, region: US}
+    - {name: get_event_bars, region: US}
+  trading:
+    - {name: get_account_list, region: "US,HK"}
+    - {name: get_account_balance, region: "US,HK"}
+    - {name: get_account_positions, region: "US,HK"}
+    - {name: get_instruments, region: "US,HK"}
+    - {name: get_futures_instruments, region: US}
+    - {name: get_futures_products, region: US}
+    - {name: get_crypto_instruments, region: US}
+    - {name: get_event_series, region: US}
+    - {name: get_event_instruments, region: US}
+    - {name: get_event_categories, region: US}
+    - {name: get_event_events, region: US}
+    - {name: place_stock_order, region: "US,HK"}
+    - {name: preview_stock_order, region: "US,HK"}
+    - {name: replace_stock_order, region: "US,HK"}
+    - {name: place_stock_combo_order, region: US, note: OTO/OCO/OTOCO}
+    - {name: place_option_single_order, region: "US,HK"}
+    - {name: preview_option_order, region: "US,HK"}
+    - {name: replace_option_order, region: "US,HK"}
+    - {name: place_option_strategy_order, region: US}
+    - {name: place_algo_order, region: US, note: TWAP/VWAP/POV}
+    - {name: place_futures_order, region: US}
+    - {name: replace_futures_order, region: US}
+    - {name: place_crypto_order, region: US}
+    - {name: place_event_order, region: US}
+    - {name: replace_event_order, region: US}
+    - {name: cancel_order, region: "US,HK"}
+    - {name: get_order_history, region: "US,HK"}
+    - {name: get_open_orders, region: "US,HK"}
+    - {name: get_order_detail, region: "US,HK"}

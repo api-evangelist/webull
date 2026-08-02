@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: derived
+source: https://developer.webull.com/apis/docs/authentication/overview
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: Connect API offers OAuth 2.0 for third-party authorization of Webull user accounts.
+  - id: hmac-request-signing
+    conforms: true
+    evidence: Every request signed with HMAC-SHA1 over app-key/timestamp/nonce (x-signature headers).
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returned 404 on developer.webull.com.
+  - id: rfc8414-oauth-authorization-server-metadata
+    conforms: false
+    evidence: /.well-known/oauth-authorization-server returned 404.
+  - id: openid-connect-discovery
+    conforms: false
+    evidence: /.well-known/openid-configuration returned 404.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No application/problem+json error format documented; errors use a code/message JSON envelope.
+  - id: grpc
+    conforms: true
+    evidence: Trading-events and market-data streaming published as gRPC (.proto in the SDKs).
+  - id: mqtt
+    conforms: true
+    evidence: Market-data push documented over MQTT (data-api.webull.com).
+regulatory:
+  note: >-
+    Webull Financial LLC is a US broker-dealer (FINRA/SIPC member); Webull is
+    regulated as a broker in multiple jurisdictions. These are corporate regulatory
+    memberships, not published API security certifications (SOC 2 / ISO 27001), so
+    no Compliance pointer is asserted.

@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/webull-inc/webull-mcp-server
+format: code-message-envelope
+envelope:
+  fields: [code, message]
+  transport: HTTP status + JSON body
+notes: >-
+  Webull does not publish an RFC 9457 problem+json catalog; the SDK/MCP surface
+  documents these operational error conditions. Titles/remediation captured from the
+  official MCP server README and authentication docs.
+errors:
+  - condition: Unauthenticated / signature invalid
+    http: 401
+    cause: Missing or invalid x-signature / x-app-key, or non-HTTPS request.
+    remediation: Ensure HTTPS and correct HMAC-SHA1 signing; SDKs handle this automatically.
+  - condition: Market data not subscribed
+    http: 401/403
+    cause: Account lacks a market-data quotes subscription for the requested region.
+    remediation: Subscribe to quotes (webullapp.com/quote US, webullapp.hk/quote HK).
+  - condition: 2FA authentication required
+    http: 401
+    cause: Account has Two-Factor Authentication enabled and no valid x-access-token.
+    remediation: Run the auth flow and approve the request in the Webull mobile app; token is valid ~15 days and auto-refreshes.
+  - condition: Device not registered
+    http: 403
+    cause: The API account's device has not completed registration.
+    remediation: Log in to the Webull mobile app with the API account to complete device registration, then re-auth.
+  - condition: Token expired
+    http: 401
+    cause: The access token has expired.
+    remediation: Delete the stored token and re-authenticate.
+  - condition: Order validation / risk-control rejection
+    http: 400
+    cause: Order fails validation (notional/quantity limits, unsupported order type for region, symbol not in whitelist).
+    remediation: Preview the order first (preview_stock_order / preview_option_order); check region feature matrix and order-type support.
+  - condition: Rate limit exceeded
+    http: 429
+    cause: Exceeded per-endpoint rate limits (e.g. order query 2 req/2s US).
+    remediation: Back off and respect documented per-endpoint limits.
