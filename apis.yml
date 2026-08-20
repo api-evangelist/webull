@@ -39,6 +39,17 @@ image: https://www.webull.com/favicon.ico
 tags:
 - Company
 - Technology
+- Financial-Services
+- Brokerage
+- Trading
+- Stock Market
+- Market Data
+- Investing
+- Fintech
+- Cryptocurrency
+tags_raw:
+- Company
+- Technology
 - Financial Services
 - Brokerage
 - Trading
@@ -61,6 +72,10 @@ apis:
   humanURL: https://developer.webull.com/apis/docs/webull-open-api-reference
   baseURL: https://api.webull.com
   tags:
+  - Trading
+  - Order
+  - Brokerage
+  tags_raw:
   - Trading
   - Orders
   - Brokerage
@@ -88,6 +103,9 @@ apis:
   humanURL: https://developer.webull.com/apis/docs
   baseURL: https://api.webull.com
   tags:
+  - Authentication
+  - Authorization
+  tags_raw:
   - OAuth
   - Authorization
 x-enrichment:
