@@ -45,7 +45,7 @@ accessModel:
   method: derived
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-10-06'
 image: https://www.webull.com/favicon.ico
 tags:
 - Company
@@ -126,6 +126,8 @@ x-enrichment:
   artifacts_added: 16
   pass: local-v1
 common:
+- url: https://www.webull.com/blog
+  type: Blog
 - type: DomainSecurity
   url: security/webull-domain-security.yml
 - type: Website
