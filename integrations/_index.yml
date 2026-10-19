@@ -34,3 +34,64 @@
     detected: '2026-10-18'
   status: not-a-workflow
   arazzo: null
+- slug: webull-go-module-proxy
+  label: Go module proxy
+  partner_name: Go module proxy
+  category: official SDK (Go)
+  type: register
+  channel: package-registry
+  evidence: https://pkg.go.dev/github.com/webull-inc/webull-openapi-cli
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Go module proxy (public registry JSON)
+    spec_file: null
+    language: Go
+    packages:
+    - name: github.com/webull-inc/webull-openapi-cli
+      version: v1.0.5
+      released: '2026-10-17'
+      released_field: Time
+      lapsed: false
+      page: https://pkg.go.dev/github.com/webull-inc/webull-openapi-cli
+      repo_leg: github-org:webull-inc
+      publisher_leg: org:webull-inc
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: webull-maven-central
+  label: Maven Central
+  partner: maven-central
+  partner_name: Maven Central
+  category: official SDK (Java/JVM)
+  type: register
+  channel: package-registry
+  evidence: https://central.sonatype.com/artifact/com.webull.openapi/webull-java-sdk
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.webull.openapi:webull-java-sdk
+      version: 0.2.17
+      released: '2026-03-28'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.webull.openapi/webull-java-sdk
+      repo_leg: github-org:webull-inc
+      publisher_leg: groupId:webull.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
