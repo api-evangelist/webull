@@ -1,35 +1,4 @@
 edges:
-- partner_name: SEC (investment adviser registration)
-  partner: null
-  partner_match: register
-  type: contract
-  channel: regulator-register
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://adviserinfo.sec.gov/firm/summary/304881
-  category: Investment adviser
-  contract_reference:
-    register: SEC Investment Adviser Public Disclosure (IAPD compilation feed, Form ADV Part 1A)
-    spec_file: null
-    standard: Investment Advisers Act of 1940 (SEC Form ADV)
-    role: sec-registered-investment-adviser
-    registered_name: WEBULL ADVISORS LLC
-    business_name: null
-    register_id: CRD 304881
-    sec_file_number: 801-117281
-    registration_status: APPROVED
-    registered_since: '2019-08-30'
-    main_office: ST PETERSBURG, FL, United States
-    matched_domain: webull.com
-    matched_by: domain
-    identity_source: registrant's own Form ADV Item 1.I website address (no lookup)
-    custody_of_client_assets: false
-    signal_note: 'participation only: SEC registration is not a certification; firm type, custody and office are
-      context, never counted; regulatory AUM is not recorded (breadth is not credit)'
-    detected_by: sweep-asset-management.py
-    detected: '2026-10-18'
-  detected_by: sweep-asset-management.py
-  first_seen: '2026-10-18'
 - partner_name: Go module proxy
   partner: null
   partner_match: null
@@ -90,6 +59,69 @@ edges:
     detected: '2026-10-18'
   detected_by: sweep-official-sdks.py
   first_seen: '2026-10-18'
+- partner_name: SEC (investment adviser registration)
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://adviserinfo.sec.gov/firm/summary/304881
+  category: Investment adviser
+  contract_reference:
+    register: SEC Investment Adviser Public Disclosure (IAPD compilation feed, Form ADV Part 1A)
+    spec_file: null
+    standard: Investment Advisers Act of 1940 (SEC Form ADV)
+    role: sec-registered-investment-adviser
+    registered_name: WEBULL ADVISORS LLC
+    business_name: null
+    register_id: CRD 304881
+    sec_file_number: 801-117281
+    registration_status: APPROVED
+    registered_since: '2019-08-30'
+    main_office: ST PETERSBURG, FL, United States
+    matched_domain: webull.com
+    matched_by: domain
+    identity_source: registrant's own Form ADV Item 1.I website address (no lookup)
+    custody_of_client_assets: false
+    signal_note: 'participation only: SEC registration is not a certification; firm type, custody and office are
+      context, never counted; regulatory AUM is not recorded (breadth is not credit)'
+    detected_by: sweep-asset-management.py
+    detected: '2026-10-18'
+  detected_by: sweep-asset-management.py
+  first_seen: '2026-10-18'
+- partner_name: Agent Skills (own GitHub org)
+  partner: null
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: Agent Skills package
+  evidence: https://github.com/webull-inc/webull-agent-skills
+  channel: provider-built
+  relationship: compatible
+  shape: agent-skills
+  evidence_kind: own-repo
+  degree: lapsed
+  report_only: true
+  agent_skills:
+    org: webull-inc
+    current: false
+    repos:
+    - repo: webull-inc/webull-agent-skills
+      archived: true
+      lapsed: true
+      pushed: '2026-06-02'
+  contract_reference:
+    register: 'provider''s own GitHub org (GitHub REST API: repo + git tree holds SKILL.md)'
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-repo
+    matched_org: webull-inc
+    matched_by: org-name (profile site webullcorp.com not in catalog)
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  detected_by: sweep-agent-skills.py
+  first_seen: '2026-10-20'
 generated: '2026-10-18'
 method: searched
 source:
@@ -103,5 +135,12 @@ checked:
 - https://registry.npmjs.org
 - https://repo1.maven.org/maven2
 - https://reports.adviserinfo.sec.gov/reports/CompilationReports/IA_FIRM_SEC_Feed_10_17_2026.xml.gz
+- https://reports.adviserinfo.sec.gov/reports/CompilationReports/IA_FIRM_SEC_Feed_10_19_2026.xml.gz
 - https://rubygems.org/api/v1
 - https://www.wealthbox.com/wp-json/wp/v2/integrations?per_page=100&page=1
+- https://api.github.com
+- https://claude-plugins.dev/sitemap.xml
+- https://github.com/VoltAgent/awesome-agent-skills
+- https://officialskills.sh/sitemap.xml
+- https://skillsmp.com/sitemap.xml
+- https://www.skills.sh/sitemap.xml
