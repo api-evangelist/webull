@@ -64,6 +64,104 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Webull is a company surfaced as a portfolio company of hongshan, lightspeed-venture-partners and added to the API Evangelist network as a stub for enrichment. Sector: technology. This profile is a lead awaiting the enrichment pipeline.
+Webull is a commission-free online brokerage whose Webull OpenAPI platform gives quantitative and algorithmic traders programmatic access to trading and market data across US and Hong Kong regions. It exposes four API products — a Trading API (place/preview/replace/cancel orders for stocks, options, futures, crypto, and event contracts, including combo OTO/OCO/OTOCO and TWAP/VWAP/POV algo orders), a Market Data API (real-time and historical snapshots, ticks, quotes/depth, footprint and OHLCV bars), a Broker API (enterprise account opening, funding, and cash journals), and a Connect API (OAuth 2.0 third-party authorization). Requests are authenticated with an App Key / App Secret pair and HMAC-SHA1 request signing, with real-time streaming over gRPC (trading events) and MQTT (market data). Webull ships official Python and Java SDKs, a Go CLI, a published MCP server, and an Agent Skill.
 
-Backed by: hongshan, lightspeed-venture-partners — https://webull.com
+**Areas:** Company · Technology · Financial Services · Brokerage · Trading · Stock Market · Market Data · Investing · Fintech · Cryptocurrency
+
+## Webull on APIs.io
+
+Everything profiled for Webull is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/webull/](https://apis.io/providers/webull/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Webull Trading API](https://apis.io/apis/webull/webull-trading-api/) — Order management across stocks, options, futures, crypto, and event contracts — place, preview, replace, cancel, batch (combo OTO/OCO/OTOCO), and algo…
+- [Webull Market Data API](https://apis.io/apis/webull/webull-market-data-api/) — Real-time and historical market data — snapshots, tick data, quotes/depth, footprint, and OHLCV bars for stocks, futures, crypto, and event contracts, over…
+- [Webull Connect API](https://apis.io/apis/webull/webull-connect-api/) — OAuth 2.0 third-party integration for authorizing access to a Webull user's account.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Webull Events Webhooks](https://apis.io/asyncapis/webull/webull-events-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [webull-mcp.yml](https://apis.io/servers/webull/webull-mcp-yml/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Webull Authentication](https://apis.io/security/webull/webull-authentication/)
+- [Webull Domain Security](https://apis.io/security/webull/webull-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://webull.com)
+- [Documentation](https://developer.webull.com/apis/docs/webull-open-api-reference)
+- [Getting started](https://developer.webull.com/apis/docs/getting-started)
+- [API reference](https://developer.webull.com/apis/docs/webull-open-api-reference)
+- [Changelog](https://developer.webull.com/apis/docs/changelog)
+- [Blog](https://www.webull.com/blog)
+- [GitHub](https://github.com/webull-inc)
+
+## API Evangelist rating
+
+**Kin Score 37.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 39.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 81.0 |
+| Access clarity | 0.0 |
+
+**Agent readiness 29.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.7** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/webull/](https://apis.io/providers/webull/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Webull: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/webull/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
